@@ -9,6 +9,7 @@ Of course, you are free to start this project from scratch if you wish! Just be 
 To get started developing right away:
 
 - install all project dependencies with `npm install`
+- install React Router with ` react-router-dom `
 - start the development server with `npm start`
 
 ## What You're Getting
