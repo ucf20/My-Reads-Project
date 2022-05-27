@@ -35,12 +35,24 @@ function Search(props) {
                   booksSearch.shelf = book.shelf;
                 }
               });
+              if (!booksSearch.imageLinks) {
+                booksSearch.imageLinks = "thumbnail";
+              } else if (!booksSearch.imageLinks.thumbnail) {
+                booksSearch.imageLinks.thumbnail =
+                  "https://react.semantic-ui.com/images/wireframe/image.png";
+              }
+              // booksSearch.imageLinks.thumbnail
+              //   ? booksSearch.imageLinks.thumbnail
+              //   : booksSearch.imageLinks.thumbnail ===
+              //     "https://react.semantic-ui.com/images/wireframe/image.png";
               return booksSearch;
             })
           );
           setActive(true);
         }
       });
+    } else {
+      setActive(false);
     }
   }, [props.books, query]);
 
@@ -67,7 +79,9 @@ function Search(props) {
                   <Book
                     title={x.title}
                     id={x.id}
-                    img={x.imageLinks.thumbnail}
+                    img={
+                      x.imageLinks.thumbnail ? x.imageLinks.thumbnail : "http"
+                    }
                     authors={x.authors}
                     update={props.update}
                     shelf={x.shelf}
